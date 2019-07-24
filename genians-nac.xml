@@ -80,7 +80,6 @@
       <address type='pci' domain='0x0000' bus='0x00' slot='0x06' function='0x0'/>
     </controller>
     <interface type='bridge'>
-      <mac address='52:54:00:f8:96:5e'/>
       <source bridge='br-enp3s0'/>
       <target dev='genians'/>
       <model type='e1000'/>
