@@ -1,4 +1,4 @@
-<domain type='kvm'>
+<domain type='kvm' >
   <name>genians-nac</name>
   <memory unit='KiB'>4194304</memory>
   <currentMemory unit='KiB'>4194304</currentMemory>
@@ -38,15 +38,14 @@
       <driver name='qemu' type='qcow2'/>
       <source file='/var/lib/libvirt/images/genians-nac.img'/>
       <backingStore/>
-      <target dev='hda' bus='ide'/>
-      <alias name='ide0-0-0'/>
+      <target dev='sda' bus='sata'/>
       <address type='drive' controller='0' bus='0' target='0' unit='0'/>
     </disk>
     <disk type='file' device='cdrom'>
       <driver name='qemu' type='raw'/>
       <source file='/var/lib/libvirt/images/GNAC-CT64-R-76812-5.0.19.0516.iso'/>
       <backingStore/>
-      <target dev='hdb' bus='ide'/>
+      <target dev='sdb' bus='sata'/>
       <readonly/>
       <alias name='ide0-0-1'/>
       <address type='drive' controller='0' bus='0' target='0' unit='1'/>
@@ -84,9 +83,8 @@
     <interface type='bridge'>
       <mac address='52:54:00:f8:96:5e'/>
       <source bridge='br-enp3s0'/>
-      <target dev='vnet0'/>
-      <model type='rtl8139'/>
-      <alias name='net0'/>
+      <target dev='genians'/>
+      <model type='e1000'/>
       <address type='pci' domain='0x0000' bus='0x00' slot='0x03' function='0x0'/>
     </interface>
     <serial type='pty'>
